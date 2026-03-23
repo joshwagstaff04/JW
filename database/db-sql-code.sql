@@ -2,7 +2,7 @@ CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340;
+    OWNER TO cse340_db2_7qyn_user;
 
 CREATE TABLE IF NOT EXISTS public.classification
 (
@@ -56,6 +56,7 @@ VALUES ('Custom'),
 ('Sedan');
 
 -- Data for table `inventory`
+
 INSERT INTO public.inventory (
     inv_make,
     inv_model,
@@ -236,12 +237,13 @@ VALUES   (
     5
   );
 
--- Query 4 from Task 1
+
+
 UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
 WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 
--- Query 6 from Task 1
+
 UPDATE public.inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
